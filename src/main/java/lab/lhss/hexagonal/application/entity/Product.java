@@ -1,16 +1,17 @@
-package lab.lhss.hexagonal.application;
+package lab.lhss.hexagonal.application.entity;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 public class Product implements ProductInterface {
 
-    private UUID id;
+    private final UUID id;
     private String name;
     private BigDecimal price;
     private String status;
 
-    public Product(UUID id, String name, BigDecimal price, String status) {
+    public Product(String name, BigDecimal price, String status) {
+        this.id = UUID.randomUUID();
         this.name = name;
         this.price = price;
         this.status = status;
