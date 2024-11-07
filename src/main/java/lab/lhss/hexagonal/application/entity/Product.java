@@ -17,6 +17,13 @@ public class Product implements ProductInterface {
         this.status = status;
     }
 
+    public Product(UUID id, String name, BigDecimal price, String status) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.status = status;
+    }
+
     @Override
     public boolean isValid() {
         if (this.status.isEmpty()) {
@@ -71,5 +78,4 @@ public class Product implements ProductInterface {
     public BigDecimal getPrice() {
         return price;
     }
-
 }

@@ -5,8 +5,8 @@ import java.util.UUID;
 
 public interface ProductInterface {
 
-    String DISABLED = "Disabled";
-    String ENABLED = "Enabled";
+    String DISABLED = "disabled";
+    String ENABLED = "enabled";
 
     boolean isValid();
     void enable();

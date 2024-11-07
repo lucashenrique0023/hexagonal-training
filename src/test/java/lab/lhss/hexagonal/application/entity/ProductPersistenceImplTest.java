@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class ProductTest {
+class ProductPersistenceImplTest {
 
     @Test
     public void shouldEnableProduct_whenPriceIsHigherThanZero() {

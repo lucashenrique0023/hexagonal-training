@@ -11,6 +11,10 @@ public class ProductService implements ProductServiceInterface {
 
     ProductPersistenceInterface persistence;
 
+    public ProductService(ProductPersistenceInterface persistence) {
+        this.persistence = persistence;
+    }
+
     @Override
     public ProductInterface get(UUID id) {
         return persistence.get(id).orElse(null);
