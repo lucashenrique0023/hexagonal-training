@@ -22,7 +22,7 @@ public class ProductService implements ProductServiceInterface {
 
     @Override
     public ProductInterface create(String name, BigDecimal price) {
-        var product = new Product(name, price, ProductInterface.ENABLED);
+        var product = new Product(UUID.randomUUID(), name, price, ProductInterface.ENABLED);
         product.isValid();
         return persistence.save(product);
     }
