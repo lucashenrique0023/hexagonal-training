@@ -1,4 +1,4 @@
-package lab.lhss.hexagonal.application.ports.outbound.cli;
+package lab.lhss.hexagonal.application.ports.cli;
 
 import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
 import lab.lhss.hexagonal.application.service.ProductServiceInterface;

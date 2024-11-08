@@ -1,6 +1,6 @@
 package lab.lhss.hexagonal;
 
-import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistenceOutbound;
+import lab.lhss.hexagonal.application.ports.db.ProductPersistenceOutbound;
 import lab.lhss.hexagonal.application.service.ProductService;
 import lab.lhss.hexagonal.application.service.ProductServiceInterface;
 import org.springframework.boot.SpringApplication;

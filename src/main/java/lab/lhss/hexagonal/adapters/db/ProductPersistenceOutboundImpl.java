@@ -2,7 +2,7 @@ package lab.lhss.hexagonal.adapters.db;
 
 import lab.lhss.hexagonal.application.entity.ProductEntity;
 import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
-import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistenceOutbound;
+import lab.lhss.hexagonal.application.ports.db.ProductPersistenceOutbound;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;

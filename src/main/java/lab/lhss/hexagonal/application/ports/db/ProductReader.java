@@ -1,4 +1,4 @@
-package lab.lhss.hexagonal.application.ports.outbound.persistence;
+package lab.lhss.hexagonal.application.ports.db;
 
 import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
 

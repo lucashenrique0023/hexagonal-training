@@ -1,7 +1,7 @@
 package lab.lhss.hexagonal.adapters.cli;
 
 import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
-import lab.lhss.hexagonal.application.ports.outbound.cli.ProductCliOutbound;
+import lab.lhss.hexagonal.application.ports.cli.ProductCliOutbound;
 import lab.lhss.hexagonal.application.service.ProductServiceInterface;
 import org.springframework.stereotype.Service;
 

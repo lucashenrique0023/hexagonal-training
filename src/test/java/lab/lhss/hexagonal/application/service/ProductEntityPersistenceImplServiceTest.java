@@ -2,7 +2,7 @@ package lab.lhss.hexagonal.application.service;
 
 import lab.lhss.hexagonal.application.entity.ProductEntity;
 import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
-import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistenceOutbound;
+import lab.lhss.hexagonal.application.ports.db.ProductPersistenceOutbound;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
