@@ -1,9 +1,9 @@
-package lab.lhss.hexagonal.application.entity;
+package lab.lhss.hexagonal.application.ports.inbound;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public interface ProductInterface {
+public interface ProductEntityInterface {
 
     String DISABLED = "disabled";
     String ENABLED = "enabled";

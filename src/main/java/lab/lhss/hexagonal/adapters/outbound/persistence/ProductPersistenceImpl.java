@@ -1,8 +1,8 @@
-package lab.lhss.hexagonal.adapters.db;
+package lab.lhss.hexagonal.adapters.outbound.persistence;
 
-import lab.lhss.hexagonal.application.entity.Product;
-import lab.lhss.hexagonal.application.entity.ProductInterface;
-import lab.lhss.hexagonal.application.persistence.ProductPersistenceInterface;
+import lab.lhss.hexagonal.application.entity.ProductEntity;
+import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
+import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistence;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public class ProductPersistenceImpl implements ProductPersistenceInterface {
+public class ProductPersistenceImpl implements ProductPersistence {
 
     JdbcTemplate jdbcTemplate;
 
@@ -23,13 +23,13 @@ public class ProductPersistenceImpl implements ProductPersistenceInterface {
     }
 
     @Override
-    public Optional<ProductInterface> get(UUID id) {
+    public Optional<ProductEntityInterface> get(UUID id) {
         String sql = "select * from products where id = ?";
-        var product = jdbcTemplate.queryForObject(sql, new RowMapper<ProductInterface>() {
+        var product = jdbcTemplate.queryForObject(sql, new RowMapper<ProductEntityInterface>() {
             @Override
-            public ProductInterface mapRow(ResultSet rs, int rowNum) throws SQLException {
+            public ProductEntityInterface mapRow(ResultSet rs, int rowNum) throws SQLException {
                 var id = UUID.fromString(rs.getString("id"));
-                return new Product(
+                return new ProductEntity(
                         id,
                         rs.getString("name"),
                         rs.getBigDecimal("price"),
@@ -42,7 +42,7 @@ public class ProductPersistenceImpl implements ProductPersistenceInterface {
     }
 
     @Override
-    public ProductInterface save(ProductInterface product) {
+    public ProductEntityInterface save(ProductEntityInterface product) {
         String sql = "select id from products where id = ?";
         List<String> result = jdbcTemplate.query(sql, (rs, rowNum) -> rs.getString("id"), product.getID().toString());
         if (result.isEmpty()) {
@@ -52,13 +52,13 @@ public class ProductPersistenceImpl implements ProductPersistenceInterface {
         }
     }
 
-    private ProductInterface create(ProductInterface product) {
+    private ProductEntityInterface create(ProductEntityInterface product) {
         String sql = "INSERT INTO products (id, name, price, status) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, product.getID().toString(), product.getName(), product.getPrice(), product.getStatus());
         return product;
     }
 
-    private ProductInterface update(ProductInterface product) {
+    private ProductEntityInterface update(ProductEntityInterface product) {
         String sql = "UPDATE products set name = ?, price = ?, status = ? WHERE id = ?";
         jdbcTemplate.update(sql, product.getName(), product.getPrice(), product.getStatus(), product.getID().toString());
         return product;

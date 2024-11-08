@@ -1,7 +1,8 @@
 package lab.lhss.hexagonal.adapters.db;
 
-import lab.lhss.hexagonal.application.entity.Product;
-import lab.lhss.hexagonal.application.entity.ProductInterface;
+import lab.lhss.hexagonal.adapters.outbound.persistence.ProductPersistenceImpl;
+import lab.lhss.hexagonal.application.entity.ProductEntity;
+import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
-class ProductPersistenceImplTest {
+class ProductEntityPersistenceImplTest {
 
     @Autowired
     private ProductPersistenceImpl persistence;
@@ -28,7 +29,7 @@ class ProductPersistenceImplTest {
     void shouldGetProduct_whenItExistsOnDatabase() {
         String sql = "INSERT INTO products (id, name, price, status) VALUES (?, ?, ?, ?)";
         var id = UUID.randomUUID();
-        jdbcTemplate.update(sql, id.toString(), "Product1", BigDecimal.TEN, ProductInterface.ENABLED);
+        jdbcTemplate.update(sql, id.toString(), "Product1", BigDecimal.TEN, ProductEntityInterface.ENABLED);
         var result = persistence.get(id);
         assertTrue(result.isPresent());
 
@@ -37,13 +38,13 @@ class ProductPersistenceImplTest {
         assertEquals(id, product.getID());
         assertEquals("Product1", product.getName());
         assertEquals(BigDecimal.TEN.setScale(2, RoundingMode.HALF_UP), product.getPrice());
-        assertEquals(ProductInterface.ENABLED, product.getStatus());
+        assertEquals(ProductEntityInterface.ENABLED, product.getStatus());
     }
 
     @Test
     void shouldCreateAndUpdateProduct() {
         var id = UUID.randomUUID();
-        var product = new Product(id, "Product676", BigDecimal.ONE, ProductInterface.ENABLED);
+        var product = new ProductEntity(id, "Product676", BigDecimal.ONE, ProductEntityInterface.ENABLED);
         persistence.save(product);
 
         var result = persistence.get(id);
@@ -53,7 +54,7 @@ class ProductPersistenceImplTest {
         assertEquals(product.getPrice().setScale(2, RoundingMode.HALF_UP), result.get().getPrice());
         assertEquals(product.getStatus(), result.get().getStatus());
 
-        var product2 = new Product(product.getID(), "Product6789", BigDecimal.TEN, ProductInterface.ENABLED);
+        var product2 = new ProductEntity(product.getID(), "Product6789", BigDecimal.TEN, ProductEntityInterface.ENABLED);
         persistence.save(product2);
 
         var result2 = persistence.get(product2.getID());
