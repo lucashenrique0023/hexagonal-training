@@ -1,6 +1,5 @@
 package lab.lhss.hexagonal.adapters.cli;
 
-import lab.lhss.hexagonal.adapters.ProductCliOutboundImpl;
 import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
 import lab.lhss.hexagonal.application.service.ProductServiceInterface;
 import org.junit.jupiter.api.Test;

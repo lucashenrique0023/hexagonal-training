@@ -1,4 +1,4 @@
-package lab.lhss.hexagonal.adapters;
+package lab.lhss.hexagonal.adapters.db;
 
 import lab.lhss.hexagonal.application.entity.ProductEntity;
 import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
