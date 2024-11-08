@@ -1,6 +1,5 @@
 package lab.lhss.hexagonal.application.entity;
 
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;

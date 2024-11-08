@@ -1,8 +1,8 @@
 package lab.lhss.hexagonal.adapters.db;
 
-import lab.lhss.hexagonal.adapters.outbound.persistence.ProductPersistenceImpl;
+import lab.lhss.hexagonal.adapters.ProductPersistenceOutboundImpl;
 import lab.lhss.hexagonal.application.entity.ProductEntity;
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
+import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductEntityPersistenceImplTest {
 
     @Autowired
-    private ProductPersistenceImpl persistence;
+    private ProductPersistenceOutboundImpl persistence;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

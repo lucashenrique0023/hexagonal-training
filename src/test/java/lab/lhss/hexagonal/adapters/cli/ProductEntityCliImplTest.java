@@ -1,8 +1,8 @@
 package lab.lhss.hexagonal.adapters.cli;
 
-import lab.lhss.hexagonal.adapters.outbound.cli.ProductCliImpl;
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
-import lab.lhss.hexagonal.application.ports.inbound.ProductServiceInterface;
+import lab.lhss.hexagonal.adapters.ProductCliOutboundImpl;
+import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
+import lab.lhss.hexagonal.application.service.ProductServiceInterface;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ProductEntityCliImplTest {
 
-    ProductCliImpl adapter = new ProductCliImpl();
+    ProductCliOutboundImpl adapter = new ProductCliOutboundImpl();
 
     @Test
     public void shouldCreateProduct_whenActionCreateIsPassedToCLI() {

@@ -1,12 +1,12 @@
-package lab.lhss.hexagonal.adapters.outbound.cli;
+package lab.lhss.hexagonal.adapters;
 
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
-import lab.lhss.hexagonal.application.ports.outbound.cli.ProductCli;
-import lab.lhss.hexagonal.application.ports.inbound.ProductServiceInterface;
+import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
+import lab.lhss.hexagonal.application.ports.outbound.cli.ProductCliOutbound;
+import lab.lhss.hexagonal.application.service.ProductServiceInterface;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductCliImpl implements ProductCli {
+public class ProductCliOutboundImpl implements ProductCliOutbound {
 
     @Override
     public String run(ProductServiceInterface service, String action, ProductEntityInterface product) {

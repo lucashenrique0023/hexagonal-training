@@ -1,7 +1,5 @@
 package lab.lhss.hexagonal.application.entity;
 
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 

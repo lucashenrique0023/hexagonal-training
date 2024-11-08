@@ -1,4 +1,4 @@
-package lab.lhss.hexagonal.application.ports.inbound;
+package lab.lhss.hexagonal.application.entity;
 
 import java.math.BigDecimal;
 import java.util.UUID;

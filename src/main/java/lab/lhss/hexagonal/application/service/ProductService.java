@@ -1,18 +1,17 @@
 package lab.lhss.hexagonal.application.service;
 
 import lab.lhss.hexagonal.application.entity.ProductEntity;
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
-import lab.lhss.hexagonal.application.ports.inbound.ProductServiceInterface;
-import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistence;
+import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
+import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistenceOutbound;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 public class ProductService implements ProductServiceInterface {
 
-    ProductPersistence persistence;
+    ProductPersistenceOutbound persistence;
 
-    public ProductService(ProductPersistence persistence) {
+    public ProductService(ProductPersistenceOutbound persistence) {
         this.persistence = persistence;
     }
 

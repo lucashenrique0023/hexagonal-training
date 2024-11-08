@@ -1,6 +1,6 @@
 package lab.lhss.hexagonal.application.ports.outbound.persistence;
 
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
+import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
 
 import java.util.Optional;
 import java.util.UUID;

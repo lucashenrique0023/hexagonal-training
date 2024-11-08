@@ -1,8 +1,8 @@
-package lab.lhss.hexagonal.adapters.outbound.persistence;
+package lab.lhss.hexagonal.adapters;
 
 import lab.lhss.hexagonal.application.entity.ProductEntity;
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
-import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistence;
+import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
+import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistenceOutbound;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -14,11 +14,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public class ProductPersistenceImpl implements ProductPersistence {
+public class ProductPersistenceOutboundImpl implements ProductPersistenceOutbound {
 
     JdbcTemplate jdbcTemplate;
 
-    public ProductPersistenceImpl(JdbcTemplate jdbcTemplate) {
+    public ProductPersistenceOutboundImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

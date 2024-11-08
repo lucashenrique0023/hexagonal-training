@@ -1,8 +1,8 @@
 package lab.lhss.hexagonal.application.service;
 
 import lab.lhss.hexagonal.application.entity.ProductEntity;
-import lab.lhss.hexagonal.application.ports.inbound.ProductEntityInterface;
-import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistence;
+import lab.lhss.hexagonal.application.entity.ProductEntityInterface;
+import lab.lhss.hexagonal.application.ports.outbound.persistence.ProductPersistenceOutbound;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 class ProductEntityPersistenceImplServiceTest {
 
     @Mock
-    ProductPersistence persistence;
+    ProductPersistenceOutbound persistence;
 
     @InjectMocks
     ProductService service;
